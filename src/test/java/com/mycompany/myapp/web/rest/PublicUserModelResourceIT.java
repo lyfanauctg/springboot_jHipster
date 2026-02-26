@@ -20,7 +20,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @AutoConfigureWebTestClient(timeout = IntegrationTest.DEFAULT_TIMEOUT)
 @WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 @IntegrationTest
-class PublicUserResourceIT {
+class PublicUserModelResourceIT {
 
     @Autowired
     private UserRepository userRepository;
@@ -32,7 +32,7 @@ class PublicUserResourceIT {
 
     @BeforeEach
     void initTest() {
-        user = UserResourceIT.initTestUser();
+        user = UserModelResourceIT.initTestUser();
     }
 
     @AfterEach

@@ -22,7 +22,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * Integrations tests for {@link DomainUserDetailsService}.
  */
 @IntegrationTest
-class DomainUserDetailsServiceIT {
+class DomainUserModelDetailsServiceIT {
 
     private static final String USER_ONE_LOGIN = "test-user-one";
     private static final String USER_ONE_EMAIL = "test-user-one@localhost";

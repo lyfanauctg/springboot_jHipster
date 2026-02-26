@@ -27,13 +27,22 @@ spring:
       additional-exclude: static/**
     livereload:
       enabled: false # we use Webpack dev server + BrowserSync for livereload
+
   jackson:
     serialization:
       indent-output: true
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
-    url: jdbc:mysql://localhost:3306/myapp?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/myapp
+    user: myapp
+    password: myapp
+    enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   mail:
     host: localhost
     port: 25
@@ -42,9 +51,12 @@ spring:
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   r2dbc:
-    url: r2dbc:mysql://localhost:3306/myapp?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
-    username: root
-    password:
+    url: r2dbc:mysql://localhost:3306/myapp
+    username: myapp
+    password: myapp
+    pool:
+      initial-size: 2
+      max-size: 5
   thymeleaf:
     cache: false
 

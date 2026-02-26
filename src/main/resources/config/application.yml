@@ -148,6 +148,12 @@ server:
 
 springdoc:
   show-actuator: true
+  swagger-ui:
+    enable: true
+    operationsSorter: alpha
+    tagsSorter: alpha
+    api-docs:
+      enabled: true
 
 # Properties to be exposed on the /info management endpoint
 info:
@@ -199,3 +205,4 @@ jhipster:
 # ===================================================================
 
 # application:
+

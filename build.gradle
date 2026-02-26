@@ -152,11 +152,15 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-test"
     implementation "org.springframework.data:spring-data-commons"
     testImplementation "org.springframework.security:spring-security-test"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "io.projectreactor:reactor-test"
+    testImplementation "org.mockito:mockito-core"
     implementation(libs.commons.beanutils) {
         exclude group: 'commons-logging', module: 'commons-logging'
     }
     implementation libs.jhipster.framework
     implementation libs.springdoc.openapi.starter.webflux.api
+    implementation "org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.5"
     implementation "org.springframework.boot:spring-boot-starter-data-r2dbc"
     implementation "com.fasterxml.jackson.module:jackson-module-jaxb-annotations"
     implementation "com.mysql:mysql-connector-j"
@@ -169,6 +173,19 @@ dependencies {
     testImplementation "org.testcontainers:testcontainers"
     annotationProcessor "org.glassfish.jaxb:jaxb-runtime"
     developmentOnly "org.springframework.boot:spring-boot-docker-compose"
+
+    // database
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // If you use Lombok in your tests as well
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+
     // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
     OperatingSystem os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.getCurrentOperatingSystem();
     Architecture arch = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.getCurrentArchitecture();

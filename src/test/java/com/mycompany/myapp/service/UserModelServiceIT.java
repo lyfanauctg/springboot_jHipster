@@ -23,7 +23,7 @@ import tech.jhipster.security.RandomUtil;
  * Integration tests for {@link UserService}.
  */
 @IntegrationTest
-class UserServiceIT {
+class UserModelServiceIT {
 
     private static final String DEFAULT_LOGIN = "johndoe_service";
 
