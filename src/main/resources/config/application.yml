@@ -106,6 +106,7 @@ spring:
       dev:
         - dev
         - api-docs
+        - swagger
         # Uncomment to activate TLS for the dev profile
         #- tls
   jmx:
@@ -148,12 +149,15 @@ server:
 
 springdoc:
   show-actuator: true
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
   swagger-ui:
-    enable: true
+    enabled: true
+    path: /swagger-ui.html
+    use-root-path: true
     operationsSorter: alpha
     tagsSorter: alpha
-    api-docs:
-      enabled: true
 
 # Properties to be exposed on the /info management endpoint
 info:

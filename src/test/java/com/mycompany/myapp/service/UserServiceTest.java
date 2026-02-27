@@ -2,6 +2,7 @@ package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.UserModel;
 import com.mycompany.myapp.repository.UserResourceRepository;
+import com.mycompany.myapp.service.dto.UserOwnDTO;
 import com.mycompany.myapp.service.impl.UserResourceServiceImpl;
 import com.mycompany.myapp.web.rest.vm.user.UserVM;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ public class UserServiceTest {
         existing.setName("Old");
         existing.setEmail("old@mail.com");
 
-        UserVM req = new UserVM();
+        UserOwnDTO req = new UserOwnDTO();
         req.setName("New");
         req.setEmail("new@mail.com");
 

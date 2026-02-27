@@ -86,7 +86,7 @@ public class SecurityConfiguration {
                     .pathMatchers("/swagger-ui.html")
                     .permitAll()
                     .pathMatchers("/webjars/**")
-                    .permitAll() // CRITICAL: This is where the CSS/JS lives
+                    .permitAll()
                     .pathMatchers("/api/public/**")
                     .permitAll() // Permit your new endpoint for testing
                     .pathMatchers("/api/v1/users/**")

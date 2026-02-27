@@ -3,6 +3,7 @@ package com.mycompany.myapp.service.impl;
 import com.mycompany.myapp.domain.UserModel;
 import com.mycompany.myapp.repository.UserResourceRepository;
 import com.mycompany.myapp.service.UserResourceService;
+import com.mycompany.myapp.service.dto.UserOwnDTO;
 import com.mycompany.myapp.web.rest.UserResource;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.errors.ResourceNotFoundException;
@@ -24,7 +25,7 @@ public class UserResourceServiceImpl implements UserResourceService {
     }
 
     @Override
-    public Mono<UserModel> create(UserVM req) {
+    public Mono<UserModel> create(UserOwnDTO req) {
         UserModel user = new UserModel();
         user.setName(req.getName());
         user.setEmail(req.getEmail());
@@ -40,15 +41,15 @@ public class UserResourceServiceImpl implements UserResourceService {
     public Mono<Void> delete(Long id) {
         return userResourceRepository
             .findById(id)
-            .switchIfEmpty(Mono.error(new BadRequestAlertException("User not found", "user", "notfound")))
+            .switchIfEmpty(Mono.error(new RuntimeException("User not found")))
             .flatMap(userResourceRepository::delete);
     }
 
     @Override
-    public Mono<UserModel> update(Long id, UserVM req) {
+    public Mono<UserModel> update(Long id, UserOwnDTO req) {
         return userResourceRepository
             .findById(id)
-            .switchIfEmpty(Mono.error(new BadRequestAlertException("User not found", "user", "notfound")))
+            .switchIfEmpty(Mono.error(new RuntimeException("User not found")))
             .flatMap(user -> {
                 user.setName(req.getName());
                 user.setEmail(req.getEmail());

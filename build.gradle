@@ -174,10 +174,6 @@ dependencies {
     annotationProcessor "org.glassfish.jaxb:jaxb-runtime"
     developmentOnly "org.springframework.boot:spring-boot-docker-compose"
 
-    // database
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//    runtimeOnly 'com.mysql:mysql-connector-j'
-
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'

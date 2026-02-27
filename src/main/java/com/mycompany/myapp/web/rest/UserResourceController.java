@@ -2,10 +2,10 @@ package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.UserModel;
 import com.mycompany.myapp.service.UserResourceService;
+import com.mycompany.myapp.service.dto.UserOwnDTO;
 import com.mycompany.myapp.web.rest.vm.user.UserVM;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -25,7 +25,10 @@ public class UserResourceController {
 
     @PostMapping("/create")
     public Mono<UserModel> createUser(@Valid @RequestBody UserVM req) {
-        return userResourceService.create(req);
+        UserOwnDTO user = new UserOwnDTO();
+        user.setName(req.getName());
+        user.setEmail(req.getEmail());
+        return userResourceService.create(user);
     }
 
     @GetMapping("/{id}")
@@ -39,7 +42,7 @@ public class UserResourceController {
     }
 
     @PutMapping("/{id}")
-    public Mono<UserModel> updateById(@Valid @PathVariable Long id, @RequestBody UserVM req) {
+    public Mono<UserModel> updateById(@Valid @PathVariable Long id, @RequestBody UserOwnDTO req) {
         return userResourceService.update(id, req);
     }
 }
